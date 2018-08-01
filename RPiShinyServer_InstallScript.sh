@@ -90,4 +90,5 @@ sudo systemctl enable shiny-server
 
 # Final Shiny Server Setup
 sudo cp samples/welcome.html /srv/shiny-server/
+sudo cp /srv/shiny-server/welcome.html /srv/shiny-server/index.html
 sudo cp -r samples/sample-apps/ /srv/shiny-server/
