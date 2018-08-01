@@ -81,14 +81,15 @@ sudo mkdir -p /etc/shiny-server
 # Return to Shiny Server directory and set shiny-server.conf
 cd shiny-server
 sudo cp config/default.config /etc/shiny-server/shiny-server.conf
-sudo cp -r ext/pandoc .
-sudo rm -r /ext/pandoc/
+sudo cp -r /usr/local/shiny-server/ext/pandoc .
+sudo rm -r /usr/local/shiny-server/ext/pandoc/
 # Setup for start at boot: http://docs.rstudio.com/shiny-server/#systemd-redhat-7-ubuntu-15.04-sles-12
 sudo cp config/systemd/shiny-server.service /etc/systemd/system/
 sudo systemctl enable shiny-server
 
 
 # Final Shiny Server Setup
-sudo cp samples/welcome.html /srv/shiny-server/
-sudo cp /srv/shiny-server/welcome.html /srv/shiny-server/index.html
+sudo cp samples/welcome.html /srv/shiny-server/index.html
 sudo cp -r samples/sample-apps/ /srv/shiny-server/
+
+sudo shiny-server &
