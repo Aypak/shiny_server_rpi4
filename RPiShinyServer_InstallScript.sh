@@ -84,12 +84,18 @@ sudo cp config/default.config /etc/shiny-server/shiny-server.conf
 sudo cp -r /usr/local/shiny-server/ext/pandoc .
 sudo rm -r /usr/local/shiny-server/ext/pandoc/
 # Setup for start at boot: http://docs.rstudio.com/shiny-server/#systemd-redhat-7-ubuntu-15.04-sles-12
-sudo cp config/systemd/shiny-server.service /etc/systemd/system/
-sudo systemctl enable shiny-server
-
+# and: https://www.raspberrypi-spy.co.uk/2015/10/how-to-autorun-a-python-script-on-boot-using-systemd/
+sed -i -e "s:ExecStart=/usr/bin/env bash -c 'exec /opt/shiny-server/bin/shiny-server >> /var/log/shiny-server.log 2>&1':ExecStart=/usr/bin/shiny-server:g"  config/systemd/shiny-server.service
+sed -i -e 's:/env::'  config/systemd/shiny-server.service
+sudo cp config/systemd/shiny-server.service /lib/systemd/system/
+sudo chmod 644 /lib/systemd/system/shiny-server.service
+sudo systemctl daemon-reload
+sudo systemctl enable shiny-server.service
 
 # Final Shiny Server Setup
 sudo cp samples/welcome.html /srv/shiny-server/index.html
 sudo cp -r samples/sample-apps/ /srv/shiny-server/
 
 sudo shiny-server &
+# Return to home directory
+cd
