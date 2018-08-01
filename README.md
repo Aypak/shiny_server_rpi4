@@ -6,7 +6,7 @@ wget https://raw.githubusercontent.com/pjaselin/ShinyServerOnRPi/master/RPiShiny
 bash RPiShinyServer_InstallScript.sh
 ```
 
-## Important Tasks Completed
+## Important Tasks in the Script
 - Adds backport for R 3.5.1
 - Handles system library dependencies
 - Installs all R packages required for index.html to successfully open
@@ -16,5 +16,5 @@ bash RPiShinyServer_InstallScript.sh
 - Resolves Pandoc issues
 
 
-## Warning
+## Warnings
 This script is provided "as is" with no warranty of any kind. As such, users should read the script to ensure they are confident in its integrity. This has only be tested and is known to work with a fresh install of the Jun 6, 2014 v4.14 Raspbian OS (https://www.raspberrypi.org/downloads/raspbian/).
