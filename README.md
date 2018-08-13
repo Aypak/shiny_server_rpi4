@@ -5,6 +5,7 @@ The provided RPiShinyServer_InstallScript.sh script will install the latest Shin
 wget https://raw.githubusercontent.com/pjaselin/ShinyServerOnRPi/master/RPiShinyServer_InstallScript.sh
 bash RPiShinyServer_InstallScript.sh
 ```
+Note that this will take several hours to complete!
 
 ## Important Tasks in the Script
 - Adds backport for R 3.5.1
