@@ -2,7 +2,7 @@
 
 The provided RPiShinyServer_InstallScript.sh script will install the latest Shiny Server distribution along with R 3.5.1 (Feather Spray) simply via the following commands:
 ```
-wget https://raw.githubusercontent.com/pjaselin/ShinyServerOnRPi/master/RPiShinyServer_InstallScript.sh
+wget https://raw.githubusercontent.com/pjaselin/ShinyServer_On_RaspberryPi/master/RPiShinyServer_InstallScript.sh
 bash RPiShinyServer_InstallScript.sh
 ```
 Note that this will take several hours to complete!
