@@ -18,7 +18,7 @@ Note that this will take several hours to complete!
 
 
 ## Warnings
-This script is provided "as is" with no warranty of any kind. As such, users should read the script to ensure they are confident in its integrity. This has been tested and is known to work with a fresh install of the Jun 6, 2014 v4.14 Raspbian OS (https://www.raspberrypi.org/downloads/raspbian/).
+This script is provided "as is" with no warranty of any kind. As such, users should read the script to ensure they are confident in its integrity. This has been tested and is known to work with a fresh install of the Jun 6, 2018 v4.14 Raspbian OS (https://www.raspberrypi.org/downloads/raspbian/).
 
 ## Maintenance
 I will try to keep this updated for new versions of R as well as the other codes found here. As such a more robust script may develop in time. Please submit issues if you run into problems and I'll do my best to make changes to the script as necessary.
