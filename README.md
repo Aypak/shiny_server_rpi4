@@ -7,6 +7,8 @@ bash RPiShinyServer_InstallScript.sh
 ```
 Note that this will take several hours to complete!
 
+Regarding performance of the Shiny Server on the Raspberry Pi, the device seems to handle it quite well and I haven't seen any processing/speed issues!
+
 ## Important Tasks in the Script
 - Adds backport for R 3.5.1
 - Handles system library dependencies
