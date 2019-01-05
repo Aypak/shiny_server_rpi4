@@ -1,3 +1,7 @@
+# CAUTION
+
+NOT FULLY FUNCTIONAL: Due to the new release of R 3.5.2, the R backport will not correctly install the lastest version of R and the required packages. However, Shiny Server will correctly install. Following from this, I'll work on developing a second script that installs the stable R 3.3.3 with Shiny Server.
+
 # Shiny Server On Raspberry Pi with R 3.5.1 (Feather Spray)
 
 The provided RPiShinyServer_InstallScript.sh script will install the latest Shiny Server distribution along with R 3.5.1 (Feather Spray) simply via the following commands:
