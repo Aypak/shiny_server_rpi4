@@ -1,20 +1,19 @@
-# CAUTION
+# Shiny Server on Raspberry Pi with R
 
-NOT FULLY FUNCTIONAL: Due to the new release of R 3.5.2, the R backport will not correctly install the lastest version of R and the required packages. However, Shiny Server will correctly install. Following from this, I'll work on developing a second script that installs the stable R 3.3.3 with Shiny Server.
+## Installation with Stable R 3.3.3
 
-# Shiny Server On Raspberry Pi with R 3.5.1 (Feather Spray)
+The provided RPiShinyServer_InstallScript.sh script will install the latest Shiny Server distribution along with R 3.3.3 (stable) simply via the following commands:
 
-The provided RPiShinyServer_InstallScript.sh script will install the latest Shiny Server distribution along with R 3.5.1 (Feather Spray) simply via the following commands:
 ```
-wget https://raw.githubusercontent.com/pjaselin/ShinyServer_On_RaspberryPi/master/RPiShinyServer_InstallScript.sh
-bash RPiShinyServer_InstallScript.sh
+wget https://raw.githubusercontent.com/pjaselin/ShinyServer_On_RaspberryPi/master/Stable_RPiShinyServer.sh
+bash Stable_RPiShinyServer.sh
 ```
+
 Note that this will take several hours to complete!
 
 Regarding performance of the Shiny Server on the Raspberry Pi, the device seems to handle it quite well and I haven't seen any processing/speed issues!
 
 ## Important Tasks in the Script
-- Adds backport for R 3.5.1
 - Handles system library dependencies
 - Installs all R packages required for index.html to successfully open
 - Edits external/node/install-node.sh for RPi ARM processor
@@ -22,6 +21,14 @@ Regarding performance of the Shiny Server on the Raspberry Pi, the device seems 
 - Configures Shiny Server, sets up initial server applications
 - Resolves Pandoc issues
 
+## Installation with Backport R 3.5.2 (Caution)
+
+NOT FULLY FUNCTIONAL: Due to the new release of R 3.5.2, the R backport will not correctly install the lastest version of R and the required packages. However, Shiny Server will correctly install.
+
+```
+wget https://raw.githubusercontent.com/pjaselin/ShinyServer_On_RaspberryPi/master/Backport_RPiShinyServer.sh
+bash Backport_RPiShinyServer.sh
+```
 
 ## Warnings
 This script is provided "as is" with no warranty of any kind. As such, users should read the script to ensure they are confident in its integrity. This has been tested and is known to work with a fresh install of the Jun 6, 2018 v4.14 Raspbian OS (https://www.raspberrypi.org/downloads/raspbian/).
