@@ -1,4 +1,4 @@
-# Install R Shiny Server (stable) on Raspberry Pi 3, tested January 16, 2018
+# Install R Shiny Server (stable) on Raspberry Pi 3, tested January 11, 2020
 # As per: https://github.com/rstudio/shiny-server/issues/347
 # and: https://www.rstudio.com/products/shiny/download-server/
 # and: https://cloud.r-project.org/bin/linux/debian/#debian-stretch-stable
@@ -16,7 +16,7 @@ sudo apt-get -y install r-base
 # Install system libraries (dependences for some R packages)
 sudo apt-get -y install libssl-dev libcurl4-openssl-dev libboost-atomic-dev
 
-## Uninstall/Reinstall Pandoc (Shouldn't be initially installed)
+## Uninstall/Reinstall Pandoc (Shouldn't be initially installed but doing this for safety)
 sudo apt-get -y remove pandoc
 sudo apt-get -y install pandoc
 
@@ -44,15 +44,15 @@ sudo apt-get -y update && sudo apt-get -y upgrade
 cd
 
 # Install Shiny Server as per https://github.com/rstudio/shiny-server/issues/347
-## Clone the repository from GitHub
+## Clone the Shiny Server repository from GitHub
 git clone https://github.com/rstudio/shiny-server.git
+
+## Copy the customer install-node.sh into the shiny-server file. This makes sure the right node is downloaded 
+## from npm for ARM processors
+cp ShinyServer_On_RaspberryPi/stable_support_files/install-node.sh shiny-server/external/node/install-node.sh 
 
 ## Edit external/node/install-node.sh for ARM processor
 cd shiny-server/
-### update NODE_SHA256 as per: https://nodejs.org/dist/v8.11.3/SHASUMS256.txt
-sed -i -e 's/08e2fcfea66746bd966ea3a89f26851f1238d96f86c33eaf6274f67fce58421a/7a2bb6e37615fa45926ac0ad4e5ecda4a98e2956e468dedc337117bfbae0ac68/g' external/node/install-node.sh
-### update NODE_FILENAME
-sed -i -e 's/x64/armv7l/g' external/node/install-node.sh
 
 ## Build Shiny Server
 packaging/make-package.sh
