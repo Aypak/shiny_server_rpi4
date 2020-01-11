@@ -30,9 +30,6 @@ sudo su - -c "R -e \"install.packages('rmarkdown', repos='https://cran.rstudio.c
 sudo apt-get -y install cmake
 sudo apt-get -y update && sudo apt-get -y upgrade
 
-## Return to home directory
-cd
-
 # Install Shiny Server as per https://github.com/rstudio/shiny-server/issues/347
 ## Clone the Shiny Server repository from GitHub
 git clone https://github.com/rstudio/shiny-server.git
@@ -41,14 +38,8 @@ git clone https://github.com/rstudio/shiny-server.git
 ## is downloaded from npm for ARM processors
 cp ShinyServer_On_RaspberryPi/stable_support_files/install-node.sh shiny-server/external/node/install-node.sh 
 
-## Edit external/node/install-node.sh for ARM processor
-cd shiny-server/
-
 ## Build Shiny Server
-packaging/make-package.sh
-
-## Return to home directory
-cd
+shiny-server/packaging/make-package.sh
 
 ## Copy Shiny Server directory to system location
 sudo cp -r shiny-server/ /usr/local/
