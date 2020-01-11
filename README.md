@@ -7,11 +7,10 @@ If you want to use a Raspberry Pi as a Shiny Server, 1) yes the RPi can handle i
 The provided RPiShinyServer_InstallScript.sh script will install the latest Shiny Server distribution along with R 3.3.3 (stable) simply via the following commands:
 
 ```bash
-wget https://raw.githubusercontent.com/pjaselin/ShinyServer_On_RaspberryPi/master/Stable_RPiShinyServer.sh
+git clone https://github.com/pjaselin/ShinyServer_On_RaspberryPi.git
+cd ShinyServer_On_RaspberryPi
 bash Stable_RPiShinyServer.sh
 ```
-
-Note that this will take several hours to complete!
 
 Regarding performance of the Shiny Server on the Raspberry Pi, the device seems to handle it quite well and I haven't seen any processing/speed issues!
 
@@ -28,7 +27,8 @@ Regarding performance of the Shiny Server on the Raspberry Pi, the device seems 
 NOT FULLY FUNCTIONAL: Due to the new release of R 3.5.2, the R backport will not correctly install the lastest version of R and the required packages. However, Shiny Server will correctly install.
 
 ```bash
-wget https://raw.githubusercontent.com/pjaselin/ShinyServer_On_RaspberryPi/master/Backport_RPiShinyServer.sh
+git clone https://github.com/pjaselin/ShinyServer_On_RaspberryPi.git
+cd ShinyServer_On_RaspberryPi
 bash Backport_RPiShinyServer.sh
 ```
 
