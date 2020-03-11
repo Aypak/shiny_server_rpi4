@@ -34,8 +34,8 @@ sudo apt-get -y update && sudo apt-get -y upgrade
 ## Clone the Shiny Server repository from GitHub
 git clone https://github.com/rstudio/shiny-server.git
 
-## Copy the customer install-node.sh into the shiny-server file. This makes sure the right node version
-## is downloaded from npm for ARM processors
+## Copy the custom install-node.sh into the shiny-server file. This makes sure the right node version
+## is downloaded from npm for ARM processors.
 cp ShinyServer_On_RaspberryPi/stable_support_files/install-node.sh shiny-server/external/node/install-node.sh 
 
 ## Build Shiny Server
