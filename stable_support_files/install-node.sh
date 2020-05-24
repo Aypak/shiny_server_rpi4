@@ -3,13 +3,13 @@
 set -e
 
 # Config variables.
-# See e.g. https://nodejs.org/dist/v8.10.0/SHASUMS256.txt for checksum.
-NODE_SHA256=ed4e625c84b877905eda4f356c8b4183c642e5ee6d59513d6329674ec23df234
+# See e.g. https://nodejs.org/dist/v12.15.0/SHASUMS256.txt for checksum.
+NODE_SHA256=c582cb65a0ec7f648618d3d33b4f87c374a3f930518b57eca1693828c965d6e5
 
 cd $(dirname $0)
 cd ../..
 
-NODE_VERSION=$(cat .nvmrc)
+NODE_VERSION="12.15.0"
 
 check_node_needed () {
   if [ -x ext/node/bin/node ]
@@ -32,8 +32,8 @@ verify_checksum () {
 }
 
 download_node () {
-  local NODE_FILENAME="node-${NODE_VERSION}-linux-armv7l.tar.xz"
-  local NODE_URL="https://nodejs.org/dist/latest-v12.x/${NODE_FILENAME}"
+  local NODE_FILENAME="node-v${NODE_VERSION}-linux-arm64.tar.xz"
+  local NODE_URL="https://nodejs.org/dist/v${NODE_VERSION}/${NODE_FILENAME}"
   local NODE_ARCHIVE_DEST="/tmp/${NODE_FILENAME}"
   echo "Downloading Node ${NODE_VERSION} from ${NODE_URL}"
 
