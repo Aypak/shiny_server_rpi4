@@ -1,11 +1,13 @@
-# Install R Shiny Server (stable) on Raspberry Pi 3, tested January 11, 2020
+#!/bin/bash
+
+# Install R Shiny Server (stable) on Raspberry Pi 4 (4GB RAM), tested on May 24, 2020
 # As per: https://github.com/rstudio/shiny-server/issues/347
 # and: https://www.rstudio.com/products/shiny/download-server/
 # and: https://cloud.r-project.org/bin/linux/debian/#debian-stretch-stable
 # and: https://github.com/rstudio/shiny-server/wiki/Building-Shiny-Server-from-Source
 
 # Start at home directory
-cd
+cd ~ || return
 
 # Update/Upgrade Raspberry Pi
 sudo apt-get -y update && sudo apt-get -y upgrade
@@ -14,7 +16,8 @@ sudo apt-get -y update && sudo apt-get -y upgrade
 sudo apt-get -y install r-base
 
 # Install system libraries (dependences for some R packages)
-sudo apt-get -y install libssl-dev libcurl4-openssl-dev libboost-atomic-dev
+# Install cmake: https://github.com/rstudio/shiny-server/wiki/Building-Shiny-Server-from-Source#what-if-a-sufficiently-recent-version-of-cmake-isnt-available
+sudo apt-get -y install libssl-dev libcurl4-openssl-dev libboost-atomic-dev cmake
 
 ## Uninstall/Reinstall Pandoc (Shouldn't be initially installed but doing this for safety)
 sudo apt-get -y remove pandoc
@@ -25,10 +28,6 @@ sudo su - -c "R -e \"install.packages('httpuv', repos='https://cran.rstudio.com/
 sudo su - -c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
 sudo su - -c "R -e \"install.packages('plotly', repos='https://cran.rstudio.com/')\""
 sudo su - -c "R -e \"install.packages('rmarkdown', repos='https://cran.rstudio.com/')\""
-
-# Install cmake: https://github.com/rstudio/shiny-server/wiki/Building-Shiny-Server-from-Source#what-if-a-sufficiently-recent-version-of-cmake-isnt-available
-sudo apt-get -y install cmake
-sudo apt-get -y update && sudo apt-get -y upgrade
 
 # Install Shiny Server as per https://github.com/rstudio/shiny-server/issues/347
 ## Clone the Shiny Server repository from GitHub
@@ -58,7 +57,7 @@ sudo chown shiny /var/log/shiny-server
 sudo mkdir -p /etc/shiny-server
 
 # Return to Shiny Server directory and set shiny-server.conf
-cd shiny-server
+cd shiny-server || return
 sudo cp config/default.config /etc/shiny-server/shiny-server.conf
 sudo cp -r /usr/local/shiny-server/ext/pandoc .
 sudo rm -r /usr/local/shiny-server/ext/pandoc/
@@ -75,6 +74,5 @@ sudo systemctl enable shiny-server.service
 sudo cp samples/welcome.html /srv/shiny-server/index.html
 sudo cp -r samples/sample-apps/ /srv/shiny-server/
 
-sudo shiny-server &
-# Return to home directory
-cd
+# Restart the shiny service
+cd  || return & sudo service shiny-server restart
