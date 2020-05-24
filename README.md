@@ -4,7 +4,7 @@ If you want to use a Raspberry Pi as a Shiny Server, 1) yes the RPi can handle i
 
 Based on [ShinyServer_On_RaspberryPi](https://github.com/pjaselin/ShinyServer_On_RaspberryPi)
 
-This has been tested on Raspberry Pi 4 (4GB RAM), running on Ubuntu Server 2020 Rpi build
+This has been tested on Raspberry Pi 4 (4GB RAM), running on [Ubuntu Server 20.04 Rpi build](http://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04-preinstalled-server-arm64+raspi.img.xz)
 
 ## Installation with Stable R (3.6.3 at time of writing)
 
