@@ -17,11 +17,7 @@ sudo apt-get -y install r-base
 
 # Install system libraries (dependences for some R packages)
 # Install cmake: https://github.com/rstudio/shiny-server/wiki/Building-Shiny-Server-from-Source#what-if-a-sufficiently-recent-version-of-cmake-isnt-available
-sudo apt-get -y install libssl-dev libcurl4-openssl-dev libboost-atomic-dev cmake
-
-## Uninstall/Reinstall Pandoc (Shouldn't be initially installed but doing this for safety)
-sudo apt-get -y remove pandoc
-sudo apt-get -y install pandoc
+sudo apt-get -y install libssl-dev libcurl4-openssl-dev cmake
 
 # Install R Packages
 sudo su - -c "R -e \"install.packages('httpuv', repos='https://cran.rstudio.com/')\""
