@@ -6,7 +6,7 @@ set -e
 # See e.g. https://nodejs.org/dist/v12.15.0/SHASUMS256.txt for checksum.
 NODE_SHA256=c582cb65a0ec7f648618d3d33b4f87c374a3f930518b57eca1693828c965d6e5
 
-cd $(dirname $0)
+cd "$(dirname "$0")"
 cd ../..
 
 NODE_VERSION="12.15.0"
@@ -14,7 +14,8 @@ NODE_VERSION="12.15.0"
 check_node_needed () {
   if [ -x ext/node/bin/node ]
   then
-    local CURRENT_NODE_VERSION=$(ext/node/bin/node --version 2>/dev/null)
+    local CURRENT_NODE_VERSION
+    CURRENT_NODE_VERSION=$(ext/node/bin/node --version 2>/dev/null)
     if [[ "$CURRENT_NODE_VERSION" == "$NODE_VERSION" ]]
     then
       echo "Node $NODE_VERSION is already installed, skipping" >&2
@@ -27,7 +28,8 @@ verify_checksum () {
   local FILE=$1
   local EXPECTED_CHECKSUM=$2
 
-  local ACTUAL_CHECKSUM=$(sha256sum "$FILE")
+  local ACTUAL_CHECKSUM
+  ACTUAL_CHECKSUM=$(sha256sum "$FILE")
   [[ "$EXPECTED_CHECKSUM  $FILE" != "$ACTUAL_CHECKSUM" ]]
 }
 
