@@ -10,7 +10,7 @@ The provided RPiShinyServer_InstallScript.sh script will install the latest Shin
 
 ```bash
 git clone https://github.com/Aypak/shiny_server_rpi4.git
-cd shiny_server_rpi4.git
+cd shiny_server_rpi4
 bash Stable_RPiShinyServer.sh
 ```
 
