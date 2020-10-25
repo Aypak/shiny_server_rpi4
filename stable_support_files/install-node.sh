@@ -34,7 +34,7 @@ verify_checksum () {
 }
 
 download_node () {
-  local NODE_FILENAME="node-v${NODE_VERSION}-linux-armv71.tar.xz"
+  local NODE_FILENAME="node-v${NODE_VERSION}-linux-armv7l.tar.xz"
   local NODE_URL="https://nodejs.org/dist/v${NODE_VERSION}/${NODE_FILENAME}"
   local NODE_ARCHIVE_DEST="/tmp/${NODE_FILENAME}"
   echo "Downloading Node ${NODE_VERSION} from ${NODE_URL}"
