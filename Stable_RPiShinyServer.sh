@@ -31,13 +31,13 @@ git clone https://github.com/rstudio/shiny-server.git
 
 ## Copy the custom install-node.sh into the shiny-server file. This makes sure the right node version
 ## is downloaded from npm for ARM processors.
-cp stable_support_files/install-node.sh shiny-server/external/node/install-node.sh 
+cp ~/shiny_server_rpi4/stable_support_files/install-node.sh ~/shiny-server/external/node/install-node.sh 
 
 ## Build Shiny Server
-shiny-server/packaging/make-package.sh
+~/shiny-server/packaging/make-package.sh
 
 ## Copy Shiny Server directory to system location
-sudo cp -r shiny-server/ /usr/local/
+sudo cp -r ~/shiny-server/ /usr/local/
 
 # Place a shortcut to the shiny-server executable in /usr/bin
 sudo ln -s /usr/local/shiny-server/bin/shiny-server /usr/bin/shiny-server
@@ -53,7 +53,7 @@ sudo chown shiny /var/log/shiny-server
 sudo mkdir -p /etc/shiny-server
 
 # Return to Shiny Server directory and set shiny-server.conf
-cd shiny-server || return
+cd ~/shiny-server || return
 sudo cp config/default.config /etc/shiny-server/shiny-server.conf
 sudo cp -r /usr/local/shiny-server/ext/pandoc .
 sudo rm -r /usr/local/shiny-server/ext/pandoc/
